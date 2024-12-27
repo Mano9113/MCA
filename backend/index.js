@@ -12,6 +12,11 @@ app.use(express.json());
 app.use(cors());
 db(); 
 
+app.post('/checkUser2', async (req, res) => {
+  console.log("working...")
+});
+
+
 // Create a user (Signup)
 app.post('/createSign', async (req, res) => {
   try {
