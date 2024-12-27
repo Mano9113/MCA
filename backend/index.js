@@ -13,7 +13,14 @@ app.use(cors());
 db(); 
 
 app.get('/checkUser2', async (req, res) => {
-  console.log("working...")
+  console.log("Starting checkUser2...");
+  try {
+    // Simulate work
+    res.status(200).send({ message: "working..." });
+  } catch (error) {
+    console.error("Error in /checkUser2:", error);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
 });
 
 
