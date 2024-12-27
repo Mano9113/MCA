@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ModalExample from "./Modal"; // Import the Modal component
 import Axios from "axios";
+import config from "../config.json";  
 
 const DropDownItems = ({ filters, setFilters, refreshData }) => {
   const [names, setNames] = useState([]); // State for student names
@@ -15,12 +16,12 @@ const DropDownItems = ({ filters, setFilters, refreshData }) => {
   const fetchDistinctValues = async () => {
     try {
       // Fetch distinct student names
-      const namesResponse = await Axios.get("http://localhost:3002/getDistinctNames");
+      const namesResponse = await Axios.get(`${config.backendUrl}/getDistinctNames`);
       setNames(namesResponse.data);
       filters.name = namesResponse.data[0]; // Set default name
 
       // Fetch distinct classes
-      const classesResponse = await Axios.get("http://localhost:3002/getDistinctClasses");
+      const classesResponse = await Axios.get(`${config.backendUrl}/getDistinctClasses`);
       setClasses(classesResponse.data);
       filters.class = classesResponse.data[0]; // Set default name
       refreshData();
