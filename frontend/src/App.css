@@ -1,0 +1,56 @@
+body {
+  background: #93c5ff;
+  background: radial-gradient(circle, rgb(255 255 255) 0%, rgb(156 202 255) 100%);
+  overflow-x: hidden;
+}
+
+.mainPages {
+  justify-content: center;
+}
+
+.inpCent {
+  display: grid;
+  /* justify-content: end; */
+  place-items: center;
+  /* flex-direction: column; */
+}
+
+img {
+  border-radius: 10%;
+  width: auto;
+  height: 80px;
+}
+
+.SignIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  text-align: center;
+}
+
+.SignIn h3 {
+  color: rgb(0, 0, 0);
+}
+
+.SignInBg {
+  background: #ffffff;
+  /* background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%); */
+  padding: 50px;
+  border-radius: 3%;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 0%), 0 6px 20px 0 rgb(0 0 0 / 13%);
+}
+
+.SignIn input {
+  width: 230px;
+  text-align: center;
+  padding: 4px;
+  outline: none;
+}
+
+.logout {
+ position: absolute;
+ left: 20px;
+ z-index: 9999;
+}
