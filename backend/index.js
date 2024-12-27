@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 db(); 
 
-app.post('/checkUser2', async (req, res) => {
+app.get('/checkUser2', async (req, res) => {
   console.log("working...")
 });
 
