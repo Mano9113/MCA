@@ -12,18 +12,6 @@ app.use(express.json());
 app.use(cors());
 db(); 
 
-app.get('/checkUser2', async (req, res) => {
-  console.log("Starting checkUser2...");
-  try {
-    // Simulate work
-    res.status(200).send({ message: "working..." });
-  } catch (error) {
-    console.error("Error in /checkUser2:", error);
-    res.status(500).send({ message: "Internal Server Error" });
-  }
-});
-
-
 // Create a user (Signup)
 app.post('/createSign', async (req, res) => {
   try {
@@ -129,8 +117,16 @@ app.get('/getChartData', async (req, res) => {
     // Apply filters
     if (name) filters.Name = name; // Case-insensitive regex for Name
     if (studentClass) filters.Class = studentClass; // Case-insensitive regex for Class
-    if (startDate && filters.Date < new Date(startDate)) return false;
-    if (endDate && filters.Date > new Date(endDate)) return false;
+    if (startDate && endDate) {
+      filters.Date = {
+        $gte: new Date(startDate),
+        $lte: new Date(endDate)
+      };
+    } else if (startDate) {
+      filters.Date = { $gte: new Date(startDate) };
+    } else if (endDate) {
+      filters.Date = { $lte: new Date(endDate) };
+    }
 
     console.log('Filters:', filters);
 
