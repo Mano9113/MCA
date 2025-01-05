@@ -16,8 +16,8 @@ const Dashboard = () => {
 
   // Initialize state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const currentYear = new Date().getFullYear();
-  const currentMonth = new Date().getMonth();
+  // const currentYear = new Date().getFullYear();
+  // const currentMonth = new Date().getMonth();
   const [filters, setFilters] = useState({
     name: queryParams.get("name") || getCookie("name") || "",
     class: queryParams.get("class") || getCookie("class") || "",
@@ -25,12 +25,12 @@ const Dashboard = () => {
       ? new Date(queryParams.get("startDate"))
       : getCookie("startDate")
       ? new Date(getCookie("startDate"))
-      : new Date(currentYear, currentMonth + 1),
+      : new Date('2024-12-01'),
     endDate: queryParams.get("endDate")
       ? new Date(queryParams.get("endDate"))
       : getCookie("endDate")
       ? new Date(getCookie("endDate"))
-      : new Date(currentYear, currentMonth + 1, 0),
+      : new Date('2024-12-31'),
   });
   const [selectedFeature, setSelectedFeature] = useState(
     queryParams.get("selectedFeature") || null
