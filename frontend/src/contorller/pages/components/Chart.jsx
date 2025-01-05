@@ -11,13 +11,14 @@ const Chart = ({ data, selectedFeature, setSelectedFeature }) => {
         const aggregatedData = {};
 
         data.forEach((item) => {
-            const date = item.Date;
+            const date = new Date(item.Date).toISOString().split('T')[0]; // Format date as YYYY-MM-DD
             if (!aggregatedData[date]) {
                 aggregatedData[date] = { x: date, y: 0, count: 0 };
             }
             aggregatedData[date].y += item[selectedFeature] || 0;
             aggregatedData[date].count += 1;
         });
+        
 
         // Average the feature values for duplicate dates
         return Object.values(aggregatedData).map(({ x, y, count }) => ({
