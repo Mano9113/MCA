@@ -11,7 +11,7 @@ const Chart = ({ data, selectedFeature, setSelectedFeature }) => {
         const aggregatedData = {};
 
         data.forEach((item) => {
-            const date = new Date(item.Date).toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+            const date = new Date(item.Date || null).toISOString().split('T')[0] ; // Format date as YYYY-MM-DD
             if (!aggregatedData[date]) {
                 aggregatedData[date] = { x: date, y: 0, count: 0 };
             }
