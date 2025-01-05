@@ -38,13 +38,15 @@ const DropDownItems = ({ filters, setFilters, refreshData }) => {
 
   // Reset filters to default values
   const handleReset = () => {
-    const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth();
+    // const currentYear = new Date().getFullYear();
+    // const currentMonth = new Date().getMonth();
     setFilters({
       name: "",
       class: "",
-      startDate: new Date(currentYear, currentMonth, 1),
-      endDate: new Date(currentYear, currentMonth + 1, 0),
+      startDate: new Date('2024-12-01'),
+      endDate: new Date('2024-12-31'),
+      // startDate: new Date(currentYear, currentMonth, 1),
+      // endDate: new Date(currentYear, currentMonth + 1, 0),
     });
   };
 
